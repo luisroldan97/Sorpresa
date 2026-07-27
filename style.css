@@ -275,6 +275,7 @@ body {
   position: relative; /* Clave para que el footer se ancle al fondo */
   min-height: 100vh; 
   padding-bottom: 80px; /* Deja un hueco invisible al final para que el footer no tape la última tarjeta */
+  overflow: hidden;
 }
 
 /* --- Pie de página (Anclado al fondo absoluto) --- */
