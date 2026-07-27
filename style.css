@@ -154,23 +154,40 @@ p.subtitle {
 }
 
 /* Corazones animados flotantes */
+/* --- Corazones Flotantes (Optimizados y sin mover íconos) --- */
+/* --- Corazones Flotantes (DE ABAJO HACIA ARRIBA) --- */
 .heart {
-  position: absolute;
-  color: #4466a0;
-  font-size: 18px;
+  position: fixed;
+  /* CLAVE 1: Ahora los anclamos abajo de la pantalla */
+  bottom: -20px; 
   user-select: none;
   pointer-events: none;
-  animation: floatUp 4s linear infinite;
-  opacity: 0.7;
+  z-index: 1; /* Fondo suave */
+  
+  /* CLAVE 2: Usamos la nueva animación 'subirCorazones' */
+  animation-name: subirCorazones;
+  animation-timing-function: ease-in; /* Empieza lento, termina rápido */
+  will-change: transform;
 }
 
-@keyframes floatUp {
+/* --- Definición de la animación de subida --- */
+@keyframes subirCorazones {
   0% {
-    transform: translateY(100vh) rotate(0deg);
+    /* Nace abajo, invisible y ya un poco más grande */
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    /* Se hace visible muy rápido */
+    opacity: 1;
+  }
+  85% {
+    /* Mantiene la opacidad casi hasta el final */
     opacity: 1;
   }
   100% {
-    transform: translateY(-10vh) rotate(360deg);
+    /* Termina arriba, invisible y crece más (scale 1.5) */
+    transform: translateY(-115vh) scale(1.5);
     opacity: 0;
   }
 }

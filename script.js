@@ -90,25 +90,36 @@ function closeModal() {
 }
 
 // Animación de corazones flotantes de fondo
+// Función para crear el corazón flotante
+// Función para crear el corazón flotante GRANDE y RÁPIDO
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
   heart.innerText = ['❤️', '💖', '💕', '🌸'][Math.floor(Math.random() * 4)];
+  
+  // Posición horizontal aleatoria
   heart.style.left = Math.random() * 100 + 'vw';
-  heart.style.animationDuration = Math.random() * 2 + 3 + 's';
-  heart.style.fontSize = Math.random() * 15 + 15 + 'px';
+  
+  // --- CAMBIO 1: DURACIÓN MÁS CORTA (Más rápido) ---
+  // Antes era (Math.random() * 3 + 4) -> entre 4s y 7s.
+  // Ahora: (Math.random() * 2 + 2) -> entre 2s y 4s.
+  const duration = Math.random() * 2 + 2;
+  heart.style.animationDuration = duration + 's';
+  
+  // --- CAMBIO 2: TAMAÑO MÁS GRANDE ---
+  // Antes era (Math.random() * 12 + 14) -> entre 14px y 26px.
+  // Ahora: (Math.random() * 15 + 25) -> entre 25px y 40px.
+  heart.style.fontSize = Math.random() * 15 + 25 + 'px';
   
   document.body.appendChild(heart);
 
+  // Se elimina automáticamente al terminar la animación
   setTimeout(() => {
     heart.remove();
-  }, 5000);
+  }, duration * 1000);
 }
 
+// --- CAMBIO 3: GENERACIÓN MÁS FRECUENTE ---
+// Al ser más rápidos, necesitamos crear más seguido para que no se vea vacío.
+// De 800ms bajamos a 400ms.
 setInterval(createHeart, 400);
-
-function createBurstHearts() {
-  for(let i = 0; i < 20; i++) {
-    setTimeout(createHeart, i * 50);
-  }
-}
