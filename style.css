@@ -51,6 +51,21 @@ body {
   100% { transform: scale(1.2); }
 }
 
+.music-player {
+  max-width: calc(100vw - 24px); /* Forzar a que nunca supere el ancho de la pantalla */
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+#musicText {
+  max-width: 140px; /* Limita el texto de la canción en pantallas chicas */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Si no entra, le pone "..." al final prolijamente */
+  display: inline-block;
+  vertical-align: middle;
+}
+
 /* Tarjeta principal */
 .card {
   background: rgba(255, 255, 255, 0.94);
