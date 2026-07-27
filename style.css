@@ -16,25 +16,21 @@ body {
   position: relative;
 }
 
-/* --- Botón flotante de música (Fijo e Inamovible) --- */
+/* --- Botón flotante de música Centrado --- */
 .music-player {
   position: fixed;
   top: 12px;
-  right: 12px;
-  
-  /* Ancho máximo seguro para la pantalla del celular */
-  max-width: calc(100vw - 24px); 
-  
-  /* Permite que el contenido se ajuste de derecha a izquierda */
-  display: flex;
-  align-items: center;
-  justify-content: flex-end; 
-  gap: 6px;
-  
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 24px);
   background: rgba(255, 255, 255, 0.95);
   border: 2px solid #4466a0;
   border-radius: 30px;
-  padding: 6px 12px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   box-shadow: 0 4px 15px rgba(68, 102, 160, 0.2);
   z-index: 99;
   cursor: pointer;
@@ -42,16 +38,16 @@ body {
   font-weight: bold;
   color: #4466a0;
   box-sizing: border-box;
-  overflow: hidden; /* Corta cualquier desborde fuera del contenedor */
 }
 
 #musicText {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 120px; /* Tamaño máximo fijo para el texto */
+  max-width: 150px;
   display: inline-block;
 }
+
 .music-player:active {
   transform: scale(0.95);
 }
