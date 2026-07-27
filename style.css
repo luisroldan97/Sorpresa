@@ -98,7 +98,7 @@ p.subtitle {
   grid-template-columns: 1fr 1fr !important; /* Fuerza 2 columnas lado a lado */
   border: 2px solid #4466a0;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 70px !important;
 }
 
 .reason-btn {
@@ -280,7 +280,7 @@ body {
 
 /* --- Pie de página (Anclado al fondo absoluto) --- */
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0px; /* Lo separa apenitas del borde inferior de la pantalla o página */
   left: 0;
   padding: 15px 10px;
@@ -292,4 +292,5 @@ body {
   color: #fff;
   font-weight: 500;
   opacity: 0.7; /* Lo hace un poco más sutil */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Sombra suave arriba */
 }
