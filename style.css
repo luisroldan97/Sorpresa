@@ -16,12 +16,11 @@ body {
   position: relative;
 }
 
-/* --- Botón flotante de música (Alineado y responsivo) --- */
+/* Botón flotante para la música */
 .music-player {
   position: fixed;
   top: 12px;
   right: 12px;
-  max-width: calc(100vw - 24px); /* Evita que sobrepase el ancho de la pantalla */
   background: rgba(255, 255, 255, 0.95);
   border: 2px solid #4466a0;
   border-radius: 30px;
@@ -35,17 +34,9 @@ body {
   font-size: 0.8rem;
   font-weight: bold;
   color: #4466a0;
-  box-sizing: border-box;
+  transition: transform 0.2s;
 }
 
-/* Recorte elegante para el texto de la canción */
-#musicText {
-  max-width: 130px; /* Limita el ancho del texto */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; /* Agrega "..." si el texto no entra completo */
-  display: inline-block;
-}
 .music-player:active {
   transform: scale(0.95);
 }
