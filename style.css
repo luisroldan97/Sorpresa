@@ -68,6 +68,7 @@ body {
 .card {
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
+  border: 2px solid #4466a0;  
   padding: 20px 16px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(68, 102, 160, 0.25);
@@ -95,6 +96,7 @@ p.subtitle {
 .reasons-container {
   display: grid !important;
   grid-template-columns: 1fr 1fr !important; /* Fuerza 2 columnas lado a lado */
+  border: 2px solid #4466a0;
   gap: 8px;
   margin-bottom: 16px;
 }
@@ -261,12 +263,15 @@ body {
 /* --- Pie de página (Anclado al fondo absoluto) --- */
 .footer {
   position: absolute;
-  bottom: 15px; /* Lo separa apenitas del borde inferior de la pantalla o página */
+  bottom: 0px; /* Lo separa apenitas del borde inferior de la pantalla o página */
   left: 0;
+  padding: 15px 10px;
+  margin-top: 10px;
+  background-color: #4466a0;
   width: 100%;
   text-align: center;
   font-size: 0.8rem;
-  color: #4466a0;
+  color: #fff;
   font-weight: 500;
   opacity: 0.7; /* Lo hace un poco más sutil */
 }
