@@ -251,3 +251,22 @@ p.subtitle {
   height: 15%; /* Altura base */
   transition: height 0.1s ease-in-out; /* Transición suave de movimiento */
 }
+
+body {
+  position: relative; /* Clave para que el footer se ancle al fondo */
+  min-height: 100vh; 
+  padding-bottom: 80px; /* Deja un hueco invisible al final para que el footer no tape la última tarjeta */
+}
+
+/* --- Pie de página (Anclado al fondo absoluto) --- */
+.footer {
+  position: absolute;
+  bottom: 15px; /* Lo separa apenitas del borde inferior de la pantalla o página */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #4466a0;
+  font-weight: 500;
+  opacity: 0.7; /* Lo hace un poco más sutil */
+}
