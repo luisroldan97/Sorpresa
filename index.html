@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una sorpresa para vos ❤️</title>
+  <!-- Vinculamos el archivo CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Audio invisible -->
+  <audio id="bgMusic" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Botón de música superior -->
+  <div class="music-player" id="musicBtn" onclick="toggleMusic()">
+    <img id="albumCover" src="images.jpg" alt="Carátula" class="album-cover hidden">
+    <span class="music-icon" id="musicIcon">🎵</span>
+    <span id="musicText">Tocá para reproducir 🎶</span>
+
+    <div class="equalizer hidden" id="equalizer">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h1>¡Mi amorcitooo! ❤️</h1>
+    <p class="subtitle">Hice esta pequeña página especialmente para vos. Tocá cada tarjeta para descubrir una sorpresa:</p>
+
+   <div class="reason-btn" onclick="toggleReason(this)">
+        ✨ Razón #1
+        <div class="reason-text">Por la forma en que me hacés sonreír todos los días, incluso con un simple mensaje.</div>
+      </div>
+
+      <div class="reason-btn" onclick="toggleReason(this)">
+        🧸 Razón #2
+        <div class="reason-text">Por cómo me cuidás y por hacer que cualquier lugar se sienta como en casa si estoy con vos.</div>
+      </div>
+
+      <div class="reason-btn" onclick="toggleReason(this)">
+        🚀 Razón #3
+        <div class="reason-text">Por ser mi compañera ideal en cada aventura, proyecto y momento especial.</div>
+      </div>
+      
+      
+      <div class="reason-btn" onclick="toggleReason(this)">
+        🚀 Razón #3
+        <div class="reason-text">Por ser mi compañera ideal en cada aventura, proyecto y momento especial.</div>
+      </div>
+<div class="reason-btn" onclick="toggleReason(this)">
+        🚀 Razón #3
+        <div class="reason-text">Por ser mi compañera ideal en cada aventura, proyecto y momento especial.</div>
+      </div>
+    <button class="action-btn" onclick="openModal()">Abrir mi mensaje final 💌</button>
+  </div>
+
+  <!-- Modal final -->
+  <div class="modal" id="myModal">
+    <div class="modal-content">
+      <h2>¡Te amo muchísimo! 💖</h2>
+      <p style="margin-top: 10px; color: #555; line-height: 1.4;">
+        Felices dos meses juntitos! Gracias por hacerme inmensamente feliz!
+      </p>
+      <button class="close-btn" onclick="closeModal()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Vinculamos el archivo JS al final -->
+  <script src="script.js"></script>
+</body>
+</html>
