@@ -127,7 +127,7 @@ setInterval(createHeart, 400);
 // Fecha y hora actual
 const now = new Date();
 
-// Fecha objetivo: El 31 de este mes a las 00:00:00 hs
+/* Fecha objetivo: El 31 de este mes a las 00:00:00 hs
 const targetDate = new Date(now.getFullYear(), now.getMonth(), 31, 0, 0, 0).getTime();
 
 function updateCountdown() {
@@ -173,5 +173,80 @@ function updateCountdown() {
 }
 
 // Ejecutar cada 1 segundo
+setInterval(updateCountdown, 1000);
+updateCountdown(); */
+// Configuración: El 31 de este mes a las 00:00:00 hs
+const nowDevice = new Date();
+const targetDate = new Date(nowDevice.getFullYear(), nowDevice.getMonth(), 31, 0, 0, 0).getTime();
+
+// Variable para guardar la hora real de internet
+let realNow = null;
+
+// Función para obtener la hora real desde internet (Servidor)
+async function fetchRealTime() {
+  try {
+    // Consultamos la hora oficial
+    const response = await fetch('https://worldtimeapi.org/api/ip');
+    const data = await response.json();
+    realNow = new Date(data.datetime).getTime();
+  } catch (error) {
+    // Si no hay internet o falla la API, usamos la del dispositivo como respaldo
+    realNow = new Date().getTime();
+  }
+}
+
+async function updateCountdown() {
+  // Si todavía no tenemos la hora del servidor, la pedimos
+  if (!realNow) {
+    await fetchRealTime();
+  } else {
+    // Avanzamos 1 segundo el tiempo real
+    realNow += 1000;
+  }
+
+  const distance = targetDate - realNow;
+
+  const countdownElement = document.getElementById('countdown-container');
+  const surpriseElement = document.getElementById('surprise-box');
+  const reasonsSection = document.getElementById('section-reasons');
+  const musicPlayer = document.getElementById('musicBtn');
+
+  // SI YA LLEGÓ EL DÍA 31 A LAS 00:00 HS REALES:
+  if (distance <= 0) {
+    if (countdownElement) countdownElement.classList.add('oculto');    // Oculta el reloj
+    if (surpriseElement) surpriseElement.classList.remove('oculto');  // Muestra la sorpresa
+    if (reasonsSection) reasonsSection.classList.remove('oculto');    // Muestra las razones
+    if (musicPlayer) musicPlayer.classList.remove('oculto');          // Muestra el reproductor
+    return;
+  }
+
+  // MIENTRAS NO SEA LA FECHA REAL:
+  if (countdownElement) countdownElement.classList.remove('oculto');
+  if (surpriseElement) surpriseElement.classList.add('oculto');
+  if (reasonsSection) reasonsSection.classList.add('oculto');
+  if (musicPlayer) musicPlayer.classList.add('oculto');
+
+  // Cálculos matemáticos de tiempo
+  const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Formato de 2 dígitos
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+
+  if (daysEl) daysEl.innerText = d < 10 ? '0' + d : d;
+  if (hoursEl) hoursEl.innerText = h < 10 ? '0' + h : h;
+  if (minutesEl) minutesEl.innerText = m < 10 ? '0' + m : m;
+  if (secondsEl) secondsEl.innerText = s < 10 ? '0' + s : s;
+}
+
+// Sincronizar hora cada 5 minutos por precisión extra
+setInterval(fetchRealTime, 300000);
+
+// Actualizar reloj en pantalla cada 1 segundo
 setInterval(updateCountdown, 1000);
 updateCountdown();
