@@ -15,7 +15,7 @@
   </audio>
 
   <!-- Botón de música superior -->
-  <div class="music-player" id="musicBtn" onclick="toggleMusic()">
+  <div class="music-player oculto" id="musicBtn" onclick="toggleMusic()">
     <img id="albumCover" src="images.jpg" alt="Carátula" class="album-cover hidden">
     <span class="music-icon" id="musicIcon">🎵</span>
     <span id="musicText">Tocá para reproducir 🎶</span>
@@ -28,11 +28,40 @@
     </div>
   </div>
 
+
+  
+
   <div class="card">
     <h1>¡Mi amorcitooo! ❤️</h1>
     <p class="subtitle">Hice esta pequeña página especialmente para vos. Cada tarjeta guarda un pedacito de todo lo que siento por vos. Tocá cada una para descubrirlo.🥰❤️❤️</p>
+  
+    <!-- 1️⃣ CUENTA REGRESIVA PRIMERO -->
+    <div id="countdown-container" class="card-countdown">
+      <h3>Falta para nuestra fecha especial:</h3>
+      <div class="timer">
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>Días</small>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>Hs</small>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>Min</small>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>Seg</small>
+        </div>
+      </div>
+    </div>
 
-   <div class="reason-btn" onclick="toggleReason(this)">
+    
+  
+
+  <div id="section-reasons" class="oculto"><div class="reason-btn" onclick="toggleReason(this)">
         💖 Razón #1
         <div class="reason-text">Porque desde el primer momento llegaste a mi vida para llenarla de paz. Con vos encontré un lugar donde siempre quiero volver. 🥹❤️</div>
       </div>
@@ -58,7 +87,8 @@
       </div>
     <button class="action-btn" onclick="openModal()">Abrir mi mensaje final 💌</button>
   </div>
-
+</div>
+   
   <!-- Modal final -->
   <div class="modal" id="myModal">
     <div class="modal-content">

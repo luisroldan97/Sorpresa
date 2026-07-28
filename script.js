@@ -123,3 +123,55 @@ function createHeart() {
 // Al ser más rápidos, necesitamos crear más seguido para que no se vea vacío.
 // De 800ms bajamos a 400ms.
 setInterval(createHeart, 400);
+
+// Fecha y hora actual
+const now = new Date();
+
+// Fecha objetivo: El 31 de este mes a las 00:00:00 hs
+const targetDate = new Date(now.getFullYear(), now.getMonth(), 31, 0, 0, 0).getTime();
+
+function updateCountdown() {
+  const currentTime = new Date().getTime();
+  const distance = targetDate - currentTime;
+
+  const countdownElement = document.getElementById('countdown-container');
+  const surpriseElement = document.getElementById('surprise-box');
+  const reasonsSection = document.getElementById('section-reasons'); // ID corregido
+  const musicPlayer = document.getElementById('musicBtn');
+
+  // SI YA LLEGÓ EL DÍA 31 A LAS 00:00 HS:
+  if (distance <= 0) {
+    if (countdownElement) countdownElement.classList.add('oculto');    // Oculta el reloj
+    if (surpriseElement) surpriseElement.classList.remove('oculto');  // Muestra la sorpresa
+    if (reasonsSection) reasonsSection.classList.remove('oculto');    // Muestra las razones
+    if (musicPlayer) musicPlayer.classList.remove('oculto');          // Muestra la música
+    return;
+  }
+
+  // MIENTRAS NO SEA LA FECHA:
+  if (countdownElement) countdownElement.classList.remove('oculto');
+  if (surpriseElement) surpriseElement.classList.add('oculto');
+  if (reasonsSection) reasonsSection.classList.add('oculto');
+  if (musicPlayer) musicPlayer.classList.add('oculto');
+
+  // Cálculos de tiempo
+  const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Asignación de valores
+  const daysEl = document.getElementById('days');
+  const hoursEl = document.getElementById('hours');
+  const minutesEl = document.getElementById('minutes');
+  const secondsEl = document.getElementById('seconds');
+
+  if (daysEl) daysEl.innerText = d < 10 ? '0' + d : d;
+  if (hoursEl) hoursEl.innerText = h < 10 ? '0' + h : h;
+  if (minutesEl) minutesEl.innerText = m < 10 ? '0' + m : m;
+  if (secondsEl) secondsEl.innerText = s < 10 ? '0' + s : s;
+}
+
+// Ejecutar cada 1 segundo
+setInterval(updateCountdown, 1000);
+updateCountdown();
