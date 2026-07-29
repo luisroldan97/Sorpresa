@@ -125,9 +125,9 @@ function createHeart() {
 setInterval(createHeart, 400);
 
 // Fecha y hora actual
-const now = new Date();
+/*const now = new Date();
 
-/* Fecha objetivo: El 31 de este mes a las 00:00:00 hs
+// Fecha objetivo: El 31 de este mes a las 00:00:00 hs
 const targetDate = new Date(now.getFullYear(), now.getMonth(), 31, 0, 0, 0).getTime();
 
 function updateCountdown() {
@@ -138,6 +138,7 @@ function updateCountdown() {
   const surpriseElement = document.getElementById('surprise-box');
   const reasonsSection = document.getElementById('section-reasons'); // ID corregido
   const musicPlayer = document.getElementById('musicBtn');
+  const saludo = document.getElementById('saludo');
 
   // SI YA LLEGÓ EL DÍA 31 A LAS 00:00 HS:
   if (distance <= 0) {
@@ -145,6 +146,7 @@ function updateCountdown() {
     if (surpriseElement) surpriseElement.classList.remove('oculto');  // Muestra la sorpresa
     if (reasonsSection) reasonsSection.classList.remove('oculto');    // Muestra las razones
     if (musicPlayer) musicPlayer.classList.remove('oculto');          // Muestra la música
+    if (saludo) saludo.classList.remove('oculto');                    // Muestra el saludo
     return;
   }
 
@@ -174,7 +176,9 @@ function updateCountdown() {
 
 // Ejecutar cada 1 segundo
 setInterval(updateCountdown, 1000);
-updateCountdown(); */
+updateCountdown(); 
+*/
+
 // Configuración: El 31 de este mes a las 00:00:00 hs
 const nowDevice = new Date();
 const targetDate = new Date(nowDevice.getFullYear(), nowDevice.getMonth(), 31, 0, 0, 0).getTime();
@@ -210,13 +214,15 @@ async function updateCountdown() {
   const surpriseElement = document.getElementById('surprise-box');
   const reasonsSection = document.getElementById('section-reasons');
   const musicPlayer = document.getElementById('musicBtn');
+  const saludo = document.getElementById('saludo');
 
   // SI YA LLEGÓ EL DÍA 31 A LAS 00:00 HS REALES:
   if (distance <= 0) {
     if (countdownElement) countdownElement.classList.add('oculto');    // Oculta el reloj
     if (surpriseElement) surpriseElement.classList.remove('oculto');  // Muestra la sorpresa
     if (reasonsSection) reasonsSection.classList.remove('oculto');    // Muestra las razones
-    if (musicPlayer) musicPlayer.classList.remove('oculto');          // Muestra el reproductor
+    if (musicPlayer) musicPlayer.classList.remove('oculto');  
+    if (saludo) saludo.classList.remove('oculto');
     return;
   }
 
