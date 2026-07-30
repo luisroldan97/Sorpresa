@@ -42,7 +42,7 @@ function toggleMusic() {
     stopEqualizerAnimation();
   } else {
     music.play().then(() => {
-      musicText.innerText = 'Corazón Sin Cara';
+      musicText.innerText = 'Plan A, Plan B, Plan C';
       musicIcon.style.display = 'none';
       albumCover.classList.remove('hidden');
       albumCover.classList.add('playing');
@@ -60,7 +60,7 @@ document.body.addEventListener('click', function startAudioOnInteraction() {
   if (!isPlaying) {
     music.play().then(() => {
       isPlaying = true;
-      musicText.innerText = 'Corazón Sin Cara';
+      musicText.innerText = 'Plan A, Plan B, Plan C';
       musicIcon.style.display = 'none';
       albumCover.classList.remove('hidden');
       albumCover.classList.add('playing');
