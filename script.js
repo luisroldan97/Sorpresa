@@ -181,7 +181,7 @@ updateCountdown();
 
 // Configuración: El 31 de este mes a las 00:00:00 hs
 const nowDevice = new Date();
-const targetDate = new Date(nowDevice.getFullYear(), nowDevice.getMonth(), 31, 0, 0, 0).getTime();
+const targetDate = new Date(nowDevice.getFullYear(), nowDevice.getMonth(), 25, 0, 0, 0).getTime();
 
 // Variable para guardar la hora real de internet
 let realNow = null;
