@@ -55,12 +55,12 @@ function toggleMusic() {
   isPlaying = !isPlaying;
 }
 
-// Iniciar música al primer toque en la pantalla
+                        // Iniciar música al primer toque en la pantalla
 document.body.addEventListener('click', function startAudioOnInteraction() {
   if (!isPlaying) {
     music.play().then(() => {
       isPlaying = true;
-      musicText.innerText = 'Plan A, Plan B, Plan C';
+      musicText.innerText = '';
       musicIcon.style.display = 'none';
       albumCover.classList.remove('hidden');
       albumCover.classList.add('playing');
