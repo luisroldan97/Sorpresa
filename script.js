@@ -60,7 +60,7 @@ document.body.addEventListener('click', function startAudioOnInteraction() {
   if (!isPlaying) {
     music.play().then(() => {
       isPlaying = true;
-      musicText.innerText = '';
+      musicText.innerText = 'Plan A, Plan B, Plan C';
       musicIcon.style.display = 'none';
       albumCover.classList.remove('hidden');
       albumCover.classList.add('playing');
